@@ -494,7 +494,7 @@ For this example we again use the PROCESS macro for SPSS. Installation instructi
 
 In SPSS we go to `Analyze > Regression > PROCESS`, in the PROCESS dialog, we select the `Model Number 1` for a simple moderation model with one moderator. We select `gaming` as the predictor `X variable`, `agress` as the dependent `Y variable`, and `unemot` as the dependent `Moderator variable W`.
 
-Under `Options`, we select `Generate code for visualizing interactions`, we can mean center our variables by selecting `all variables that define products`, and for `Moderation and conditioning` we select `-1SD, Mean, +1SD` and tick the `Johnson-Neyman output` box. click `continue` to set these options.
+Under `Options`, we select `Generate data to visualize moderation` with `Model estimates only`, we can `Mean center components of products` for `Only continuous components`, and we need to `Probe interaction` with `Moments` to get the conditional effects for moderator values at 1 standardeviation below, above and at the mean, and tick the `Johnson-Neyman technique` box. Click `continue` to set these options.
 
 The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under `long variable names`.
 
@@ -502,12 +502,12 @@ Finally, we click `OK` to run the analysis. The output will contain the regressi
 
 ::: {#vid-RunModerationWithProcess}
 
-{{< video https://youtu.be/kSqiAhGup0o?si=5k_wn6Uo_9cjmR-Y
+{{< video https://youtu.be/UjzwBtRcy8g
     width="100%"
     height="315" 
 >}}
 
-Running a moderation analysis with PROCESS in SPSS.
+Running a moderation analysis with a continuous moderator in SPSS with PROCESS 5.
 :::
 
 
@@ -629,9 +629,6 @@ GRAPH/SCATTERPLOT=
  gaming   WITH     agress   BY       unemot   . 
 ```
 
-
-
-
 ## Numerical and categorical moderators {#sec-RegressionContModSPSS}
 
 In the smokers dataset we not only have the results from the anti-smoking campaign, and contact with smokers, but also information about the smoking status of the participants, which could be non-smoker, former smoker, or smoker. We can use this information to test whether the effect of exposure to the anti-smoking campaign on attitude towards smoking is not only moderated by the amount of contact with smokers but also by the smoking status. In other words, we want to know whether the moderating effect of contact with smokers on the effect of exposure on attitude is different for smokers, former smokers, and non-smokers.
@@ -668,31 +665,23 @@ rm(variables)
 
 For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in @sec-installPROCESS. We use the [smokers.sav](data/smokers5.sav) data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the amount of contact that people have with smokers and their own smoking status being non-smoker, former smoker or smoker.
 
-In SPSS we go to `Analyze > Regression > PROCESS`, in the PROCESS dialog, we select `Model Number 2` for a moderation model with two moderators and a second order interaction. We select `exposure` as the predictor `X variable`, and `attitude` as the dependent `Y variable`. We set `contact` as the continuous numerical `Moderator variable W`, and `status3` as the `Moderator variable Z`. The variable `status3` is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the `Multicategorical` butten and ticking the `Multicategorical` for `Variable Z`. You can leave the `Coding system` at `Indicator`.
+In SPSS we go to `Analyze > Regression > PROCESS`, in the PROCESS dialog, we select `Model 2` for a moderation model with two moderators and a second order interaction. We select `exposure` as the predictor `X variable`, and `attitude` as the dependent `Y variable`. We set `contact` as the continuous numerical `Moderator variable W`, and `status3` as the `Moderator variable Z`. The variable `status3` is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the `Multicategorical` butten and ticking the `Multicategorical` for `Variable Z`. You can leave the `Combo Box` at `Indicator/dummy`.
 
-Under `Options`, we select `Generate code for visualizing interactions`, we can mean center our variables by selecting `all variables that define products`, and for `Moderation and conditioning` we select `-1SD, Mean, +1SD`, but we can leave the `Johnson-Neyman output` un-ticked. Click `continue` to set these options.
+Under `Options`, we select `Generate data to visualize moderation` for `Model estimates only`, we can mean center our variables by selecting `Mean center components of products` for `Only continuous components`, and we need to `Probe interaction` with `Moments` to get the conditional effects for moderator values at 1 standardeviation below, above and at the mean, and tick the `Johnson-Neyman technique` box. Click `continue` to set these options.
 
 The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under `long variable names`.
 
 Finally, we click `OK` to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. @vid-SPSSrunModContCat will show how to run the analysis in SPSS.
 
-
-
-
-
-
-
 ::: {#vid-SPSSrunModContCat}
 
-{{< video https://youtu.be/mdxtRyMcb-4
+{{< video https://youtu.be/oOroCUYD1qk
     width="100%"
     height="315" 
 >}}
 
 Moderation analysis with a continuous and a categorical moderator in SPSS using the PROCESS macro.
 :::
-
-
 
 ```{r, echo=FALSE, eval=FALSE}
 # Goal: Graph regression lines for different moderator values in a scatterplot.

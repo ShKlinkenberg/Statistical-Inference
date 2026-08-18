@@ -52,3 +52,5 @@ book-DeNooyPöttgens’s MacBook Pro.Rproj
 book.Rproj
 
 **/*.quarto_ipynb
+.github/copilot-instructions.md
+.github/instructions/mermaid.instructions.md

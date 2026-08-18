@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>2&nbsp; Probability Models – Statistical Inference</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -24,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -54,15 +59,14 @@ div.csl-indent {
 <link href="./01-samplingdistr.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-da8f32ed4c15d05d0528d1d77f0704ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8361c3d3bdea9cefaebc78aa5210298e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -92,8 +96,6 @@ div.csl-indent {
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <link rel="stylesheet" href="styleX.css">
@@ -121,9 +123,7 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Inference</a> 
         <div class="sidebar-tools-main">
@@ -141,7 +141,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction and Reader’s Guide</span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -260,7 +260,7 @@ div.csl-indent {
   <li><a href="#when-do-we-use-which-approach-to-the-sampling-distribution" id="toc-when-do-we-use-which-approach-to-the-sampling-distribution" class="nav-link" data-scroll-target="#when-do-we-use-which-approach-to-the-sampling-distribution"><span class="header-section-number">2.7</span> When Do We Use Which Approach to the Sampling Distribution?</a></li>
   <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">2.8</span> Take-Home Points</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/02-probability.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/02-probability.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/master/02-probability.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/master/02-probability.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -328,7 +328,7 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 </figcaption>
 <div aria-describedby="tbl-exact-approach-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<table class="table cell caption-top table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Outcome</th>
@@ -423,7 +423,7 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 <p>Your research question is: <em>Are yellow candies more often sticky than red candies</em>? It concerns two variables. The first variable is candy colour (yellow versus red) and the second variable is stickiness (sticky versus not sticky). These two variables are both categorical (with two categories).</p>
 <p>Thus, we can create an exact probability distribution for the combination of colour and stickiness.</p>
 <p>If SPSS offers an exact approach of the sampling distribution, the test dialog window contains an <code>Exact</code> button. We can find this in the dialog window for creating a contingency table (<code>Analyze &gt; descriptive statistics &gt; crosstab</code>) and in several legacy dialogs for non-parametric tests (<code>Analyze &gt; nonparametric tests &gt; legacy dialogs</code>). In the Exact dialog, we check the <code>Exact</code> option and SPSS automatically sets an upper limit of five minutes to the execution of the command. We can leave this at five minutes (see <a href="#sec-comp-int" class="quarto-xref"><span>Section 2.1.2</span></a> for why we have to do this).</p>
-<p>As established, we have two categorical variables with two categories. To correct statistical test for these variables is a Chi Square test. Don’t worry - we will discuss this in more detail later, but you can already have a brief look at the test selection table (<a href="04-hypothesis.html#sec-test-selection" class="quarto-xref"><span>Section 4.4</span></a>). Within the dialog window <code>crosstabs</code> we open the <code>Statistics</code> dialog to select Chi-square and we open the <code>Exact</code> dialog to select the option <code>Exact</code>.</p>
+<p>As established, we have two categorical variables with two categories. The correct statistical test for these variables is a Chi Square test. Don’t worry - we will discuss this in more detail later, but you can already have a brief look at the test selection table (<a href="04-hypothesis.html#sec-test-selection" class="quarto-xref"><span>Section 4.4</span></a>). Within the dialog window <code>crosstabs</code> we open the <code>Statistics</code> dialog to select Chi-square and we open the <code>Exact</code> dialog to select the option <code>Exact</code>.</p>
 <p><em>Note</em>. A Fisher’s exact test is automatically run when there is a 2x2 contingency table. When we perform this test on larger contingency tables we need to select the <code>Exact</code> option, which is why we teach it to you here.</p>
 </section>
 <section id="instructions" class="level3" data-number="2.2.2">
@@ -446,7 +446,7 @@ Video&nbsp;2.2: Perform an exact test in SPSS.
 <p>In the video below, we will interpret the results of an Exact test in SPSS.</p>
 <p>The video shows you the different tables that yield from the analysis. Output from an analysis often starts with a type of summary. Here you can check things similar to descriptive analyses (e.g., case numbers, means, etc.). In the case of an exact test, we see the numbers of cases in the first table <em>case processing summary</em>.</p>
 <p>The second table shows us the crosstabulation with the added percentages for all columns. The percentages alone can already give you a good idea about the nature of your results and can help you interpret the test statistics.</p>
-<p>In the third table, <em>chi square tests</em>, we can see our test statistics and values like the p-value. In the third row you can find Fisher’s Exact Test. Here, you find the numbers you need to report the results of your statistical test. The p-value tells us whether an effect is significant or not based on this sample. A p-value that is smaller than .05 is commonly considered to indicate significance. There is more to this, but we will elaborate in Chapter 4. If you find a significant results, like shown in the video, the percentages (in the crosstabulation or second table) can help you interpret which groups differ from each other and in which way.</p>
+<p>In the third table, <em>chi square tests</em>, we can see our test statistics and values like the p-value. In the third row you can find Fisher’s Exact Test. Here, you find the numbers you need to report the results of your statistical test. The p-value tells us whether an effect is significant or not based on this sample. A p-value that is smaller than .05 is commonly considered to indicate significance. There is more to this, but we will elaborate in Chapter 4. If you find a significant result, like shown in the video, the percentages (in the crosstabulation or second table) can help you interpret which groups differ from each other and in which way.</p>
 <p>The fourth table, <em>symmetric measures</em>, shows us the effect size. In this case we conclude there is a moderate association between candy stickiness and colour.</p>
 <p>In other words, the significant result in this video combined with the percentages can tell us that according to this data it seems that blue, green and orange candies tend to be stickier than red and yellow candies. Good to know when you are hosting the next birthday party!</p>
 <p>Watch the video for the step by step instructions on how to interpret the exact approach in SPSS and some additional information.</p>
@@ -514,7 +514,7 @@ Table&nbsp;2.2: Rules of thumb for using theoretical probability distributions.
 </figcaption>
 <div aria-describedby="tbl-thumb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<table class="table cell caption-top table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Distribution</th>
@@ -525,60 +525,54 @@ Table&nbsp;2.2: Rules of thumb for using theoretical probability distributions.
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Binomial distribution</td>
-<td style="text-align: left;">proportion</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">-</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">(Standard) normal distribution</td>
 <td style="text-align: left;">proportion</td>
 <td style="text-align: left;">times test proportion (&lt;= .5) &gt;= 5</td>
 <td style="text-align: left;">-</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">(Standard) normal distribution</td>
 <td style="text-align: left;">one or two means</td>
 <td style="text-align: left;">&gt; 100</td>
 <td style="text-align: left;">OR variable is normally distributed in the population and population standard deviation is known (for each group)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">t distribution</td>
 <td style="text-align: left;">one or two means</td>
 <td style="text-align: left;">each group &gt; 30</td>
 <td style="text-align: left;">OR variable is normally distributed in each group's population</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">t distribution</td>
 <td style="text-align: left;">(Pearson) correlation coefficient</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">variables are normally distributed in the population</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">t distribution</td>
 <td style="text-align: left;">(Spearman) rank correlation coefficient</td>
 <td style="text-align: left;">&gt; 30</td>
 <td style="text-align: left;">-</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">t distribution</td>
 <td style="text-align: left;">regression coefficient</td>
 <td style="text-align: left;">20+ per independent variable</td>
 <td style="text-align: left;">See Chapter 8.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">F distribution</td>
 <td style="text-align: left;">3+ means</td>
 <td style="text-align: left;">all groups are more or less of equal size</td>
 <td style="text-align: left;">OR all groups have the same population variance</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">F distribution</td>
 <td style="text-align: left;">two variances</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">no conditions for Levene's F test</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">chi-squared distribution</td>
 <td style="text-align: left;">row or cell frequencies</td>
 <td style="text-align: left;">expected frequency &gt;= 1 and 80% &gt;= 5</td>
@@ -652,7 +646,7 @@ Figure&nbsp;2.4: Dependent samples.
 <h2 data-number="2.4" class="anchored" data-anchor-id="spss-and-theoretical-approximation-of-the-sampling-distribution"><span class="header-section-number">2.4</span> SPSS and Theoretical Approximation of the Sampling Distribution</h2>
 <p>By default, SPSS uses a theoretical probability distribution to approximate the sampling distribution. It chooses the correct theoretical distribution but you yourself should check if the conditions for using this distribution are met. For example, is the sample large enough or is it plausible that the variable is normally distributed in the population?</p>
 <p>In one case, SPSS automatically selects an exact approach if the conditions for a theoretical approximation are not met. If you apply a chi-squared test to a contingency table in SPSS, SPSS will automatically apply Fisher’s exact test if the table has two rows and two columns. In all other cases, you have to select bootstrapping or an exact approach yourself if the conditions for a theoretical approximation are not met.</p>
-<p>We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters. The default approach in SPSS means that if we conduct an analysis in SPSS without changing the settings to include an exact approach or bootstrapping (which you will learn in the next paragraph), we are using a theoertical approximation on our data.</p>
+<p>We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters. The default approach in SPSS means that if we conduct an analysis in SPSS without changing the settings to include an exact approach or bootstrapping (which you will learn in the next paragraph), we are using a theoretical approximation on our data.</p>
 </section>
 <section id="sec-boot-approx" class="level2 page-columns page-full" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="sec-boot-approx"><span class="header-section-number">2.5</span> The Bootstrap Approximation of the Sampling Distribution</h2>
@@ -725,7 +719,7 @@ Figure&nbsp;2.7: How is bootstrapping influenced by sample size? In the populati
 <section id="instructions-1" class="level3" data-number="2.6.1">
 <h3 data-number="2.6.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">2.6.1</span> Instructions</h3>
 <p>The last approach we will show you in SPSS is bootstrapping. In the video below you will see several analyses to which we add bootstrapping.</p>
-<p>Remember your birthday party with a lot of candy that sparks new questions every couple of minutes? This time one friend is getting a bit nauseous from the candy and another friend is doing just fine. They conclude they both have been eating the same amount of candy but one has a preference for strawberry flavoured and the other for lemon flavoured. Could it be that the friend who is constantly eating red candies has been eating more cnady than the friend that has been eating yellow candies? According to your friends, that could only be true if the red candies weigh more than the yellow candies.</p>
+<p>Remember your birthday party with a lot of candy that sparks new questions every couple of minutes? This time one friend is getting a bit nauseous from the candy and another friend is doing just fine. They conclude they both have been eating the same amount of candy but one has a preference for strawberry flavoured and the other for lemon flavoured. Could it be that the friend who is constantly eating red candies has been eating more candy than the friend that has been eating yellow candies? According to your friends, that could only be true if the red candies weigh more than the yellow candies.</p>
 <p>In this case, we are investigating whether yellow and red candies weigh the same amount. Thus, we have two variables: candy colour (red and yellow; two categories) and candy weight (continuous). As you can see in <a href="04-hypothesis.html#sec-test-selection" class="quarto-xref"><span>Section 4.4</span></a>, we can investigate these variables with an independent t-test. This independent t-test is shown in the video.</p>
 <p>As you might remember from the exact approach, this data set contains more candy colours than red and yellow. It is important that we define the groups so that this analysis only includes red and yellow candies. Otherwise we will not find an answer to the question we have proposed above.</p>
 <p>You might also remember from the theoretical approach that there are certain conditions we need to meet in order to be able to execute an independent samples t-test. Let’s say your friends have been eating quite some candy and therefore we do not have 30 yellow and 30 red candies left. Consequently, we do not meet the conditions. This leads us to resort to bootstrapping to still be able to use the independent sample t-test. Via the <code>bootstrap</code> button, we can check <code>perform bootstrapping</code>. Usually, we use 5000 bootstrap samples and 95% bias corrected confidence intervals. Please note that bootstrapping is random and therefore bootstrap results can always differ a little bit from each other, you might see this when working together with a friend or checking your answers on the preparatory assignments. Numbers can differ a little bit, this will not happen when we use the same seed - but we do not use that option in this course.</p>
@@ -742,7 +736,7 @@ Video&nbsp;2.4: Perform bootstrapping in SPSS.
 </div>
 <p>Now that we have run the analysis in SPSS, we want to show you how to interpret this results. And thus, how to answer the question whether yellow and red candies weigh the same amount.</p>
 <p>As with the Fisher’s exact test, the output starts - after a table with some bootstrap specifications - with a summary type table including descriptive like results. The <em>group statistics</em>, here we can find the number of cases (candies), means, standard deviations, etc. The means can already give you a sense of and a grip on your results, which can help with interpretation later on.</p>
-<p>The table below, <em>independent samples test</em>, shows us the results of the independent samples t-test, including Leven’s F-test, the test statistic, p-value and bootstrapped confidence interval. Levene’s F-test is above .05 which leads us to conclude that equal variances are assumed (we will talk more about this during ANOVA, in chapter 5). This means we look at the upper row for our results. The t-value has a corresponding p-value that is also above .05 which menas that the effect of candy colour on candy weight is not significant.</p>
+<p>The table below, <em>independent samples test</em>, shows us the results of the independent samples t-test, including Levene’s F-test, the test statistic, p-value and bootstrapped confidence interval. Levene’s F-test is above .05 which leads us to conclude that equal variances are assumed (we will talk more about this during ANOVA, in chapter 5). This means we look at the upper row for our results. The t-value has a corresponding p-value that is also above .05 which means that the effect of candy colour on candy weight is not significant.</p>
 <p>The second part of the <em>independent samples test</em> shows us the mean difference which is very small, this makes sense given the fact that we found a not significant result. The bootstrapped confidence intervals show that the zero falls in the 95% interval. This means that there is a likelihood that the mean difference could be zero. Thus, looking at the intervals we would also conclude that the effect is not significant.</p>
 <p>In conclusion, the results show us that we could conclude that the hypothesis made by your friends gets no support from our data. Red and yellow candies seem to weigh approximately the same. We could have already seen this coming after looking at the mean values.</p>
 <p>Watch the video for the step by step on how to interpret an independent t-test with bootstrapping, the details and some additional information.</p>
@@ -789,7 +783,7 @@ Video&nbsp;2.5: Interpret bootstrap results in SPSS.
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-RefWorks:3956" class="csl-entry" role="listitem">
 Efron, B. 1979. <span>“Bootstrap Methods: Another Look at the Jackknife.”</span> <em>Ann.Statist.</em> 7 (1): 1–26.
 </div>
@@ -1222,4 +1216,4 @@ Efron, Bradley. 1987. <span>“Better Bootstrap Confidence Intervals.”</span> 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/02-probability.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/02-probability.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/master/02-probability.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/master/02-probability.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

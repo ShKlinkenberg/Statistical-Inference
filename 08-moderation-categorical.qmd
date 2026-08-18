@@ -818,19 +818,19 @@ In @vid-PROCESS2cat, we show how to use PROCESS to estimate a moderation model w
 Instructions on how to add PROCESS to your SPSS installation can be found in [Appendix -@sec-installPROCESS].
 :::
 
-In SPSS we go to `Analyze > Regression > PROCESS`. In the dialog box, we select the dependent variable (attitude) as `Y variable`, the predictor (exposure) as `X variable`, and the moderator (status2) as `Moderator variable W`. We select `Model 1` for a moderation model with one moderator. Under `Options`, we select `generate code to visualize interaction`, and we click on `OK` to run the analysis.
+In SPSS we go to `Analyze > Regression > PROCESS`. In the dialog box, we select the dependent variable (attitude) as `Y variable`, the predictor (exposure) as `X variable`, and the moderator (status2) as `Moderator variable W`. We select `Model 1` for a moderation model with one moderator. Under `Options`, we select `generate data to visualize moderation`, `Model estimates only` and select some `Model diagnostics` to check the regression assumptions and click on `OK` to run the analysis.
 
 When PROCESS is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (`File > New > Syntax`), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.
 
 The plot shows the scatter plot for the relation between exposure and attitude for the two groups of the moderator (non-smokers and smokers). To add the regression lines, we can use the `Add Fit Line to subgroups` in the `Chart Editor`. The `Chart Editor` opens when we double click on the plot.
 
 ::: {#vid-PROCESS2cat}
-{{< video https://youtu.be/I6_ShDCM0vY?si=mOfkZNJ1zl1RScYd
+{{< video https://youtu.be/vZLlcVoMVns
     width="100%"
     height="315"
 >}}
 
-Estimating categorical by numerical moderation with regression in SPSS using PROCESS.
+Running a moderation analysis with one dichotomous moderator.
 :::
 
 @vid-PROCESS2catInterpretation shows how to interpret the output of PROCESS for a two category moderator. The example uses the [smokers.sav](data/smokers4.sav) data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status2_).
@@ -1038,15 +1038,15 @@ In the dialog box of PROCESS, we select the dependent variable (attitude) as `Y 
 Instructions on how to add PROCESS to your SPSS installation can be found in [Appendix -@sec-installPROCESS].
 :::
 
-In addition we have to let PROCESS know that we have a categorical moderator with more than two levels. We do this by clicking the `Multicategorical` button and indicating that the `Moderator variable W` is multicatigorical. Click `continue` and click on `OK` to run the analysis. @vid-SPSSrunModmorecat shows how to use PROCESS to estimate a moderation model with a categorical moderator with more than two levels.
+In addition we have to let PROCESS know that we have a categorical moderator with more than two levels. We do this by clicking the `Multicategorical` button and indicating that the `Moderator variable W` is multicatigorical, with default settings `Combo Box: Indicator/dummy`. Click `continue` and click on `OK` to run the analysis. @vid-SPSSrunModmorecat shows how to use PROCESS to estimate a moderation model with a categorical moderator with more than two levels.
 
 ::: {#vid-SPSSrunModmorecat}
-{{< video https://youtu.be/WA7hSVy2bpA
+{{< video https://youtu.be/3jRH9_8Bv-k
     width="100%"
     height="315" 
 >}}
 
-Running a moderation analysis in SPSS using PROCESS with a categorical moderator with more than 2 levels and a continuous predictor.
+Running a moderation analysis in SPSS using PROCESS 5 with a categorical moderator with more than 2 levels and a continuous predictor.
 :::
 
 When the analysis is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (`File > New > Syntax`), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.

@@ -47,11 +47,17 @@ In addition the moderation analysis with continuous variables has been rewritten
 
 In all chapters textual explanations have been added to the SPSS videos by [Jolijn van den Hout](https://www.linkedin.com/in/jolijn-van-den-hout-b54b33192/) to improve the readability and accessibility of the book.
 
+### 2026 updates {-}
+
+In the 2026 update [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/) has added the SPSS basics section on data wrangling and visualization to the introduction chapter. [Christin Scholz](https://www.linkedin.com/in/christin-scholz-7a07264b/?originalSubdomain=nl) has revised [Chapter -@sec-hypothesis] to make the text more accessible and less convoluted, while Sharon updated the @sec-test-selection with an extended test selection flow chart and table. The seperate repository for the test selection code can be found [in this GitHub repository](https://github.com/ShKlinkenberg/statistical-test-selection/tree/main). In addition Sharon has updated the PROCESS macro text and videos to version 5 of PROCESS.
+
 ### Contribute {-}
 
 If you would like to contribute to the book, you can fork the GitHub repository and submit a pull request. The book is written in quarto markdown and compiled using the quarto package. The book is hosted on GitHub pages and the source material is maintained from [his github repository](https://github.com/WdeNooy/Statistical-Inference). If you find any typo's or errors, please submit an issue on the [GitHub repository](https://github.com/ShKlinkenberg/Statistical-Inference/issues).
 
 ### License {-}
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
 

@@ -122,7 +122,7 @@ If we change the frequencies in the sampling distribution into proportions, we o
 
 The sampling distribution as a probability distribution conveys very important information. It tells us which outcomes we can expect,  in our example, how many yellow candies we may find in our bag of ten candies. Moreover, it tells us the probability that a particular outcome may occur. If the sample is drawn from a population in which 20% of candies are yellow, we are quite likely to find zero, one, two, three, or four yellow candies in our bag. A bag with five yellow candies would be rare, six or seven candies would be very rare, and a bag with more than seven yellow candies is extremely unlikely but not impossible. If we buy such a bag, we know that we have been extremely lucky.  
 
-We may refer to probabilities both as a proportion, that is, a number between 0 and 1, and as a percentage: a number between 0% and 100%. Proportions are commonly considered to be the correct way to express probabilities. When we talk about probabilities, however, we tend to use percentages; we may, for example, say that the probabilities are fifty-fifty.  
+We may refer to probabilities both as a proportion, that is, a number between 0 and 1, and as a percentage: a number between 0% and 100%. Proportions are commonly considered to be the correct way to express probabilities. When we talk about probabilities in everyday conversations, we tend to use percentages; we may, for example, say that the probabilities are fifty-fifty.  
 
 ### Expected value or expectation {#sec-expectedvalue}
 

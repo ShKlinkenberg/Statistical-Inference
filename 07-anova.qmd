@@ -262,7 +262,7 @@ vaccination information) explained or predicted by the group variable
 
 This proportion is informative and precise. If you want to classify the
 effect size in more general terms, you should take the square root of
-eta^2^ to obtain *eta*. As a measure of association, eta^2^ can be
+eta^2^ to obtain *eta*. As a measure of association, eta can be
 interpreted with the following rules of thumb:
 
 - 0 – 0.1: non to weak effect
@@ -482,7 +482,7 @@ dependent variable. In our current example, we reject the null
 hypothesis that average vaccine acceptance is equal for people who saw a
 campaign with autonomy supportive, controlling or neutral language. In
 other words, we *reject* the null hypothesis that the campaign style (or
-lagnuage used) does *not* matter to vaccine acceptance.
+language used) does *not* matter to vaccine acceptance.
 
 #### Pairwise comparisons as post-hoc tests
 
@@ -560,6 +560,12 @@ significance tests (@sec-critical-discussion). Remember that the 5 per
 cent significance level remains an arbitrary boundary and statistical
 significance depends a lot on sample size. So do not panic if the *F*
 and *t* tests have contradictory results.
+
+::: {.column-margin}
+
+Download: [vaccine.sav](data/vaccine.sav) to follow along with the SPSS videos.
+
+:::
 
 A statistically significant *F* test tells us that we may be quite
 confident that at least two group means are different in the population.
@@ -824,7 +830,7 @@ population.
 
 ```{r}
 #| label: fig-anova-meansplot2
-#| fig-cap: "Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of langugae conditions and having high health literacy are represented by arrows and dashed lines."
+#| fig-cap: "Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of language conditions and having high health literacy are represented by arrows and dashed lines."
 #| echo: false
 #| warning: false
 
@@ -1048,21 +1054,14 @@ hypothesize that the effect of using controlling language is stronger
 for participants with low health literacy than for participants with
 high health literacy.
 
-In analysis of variance, effects are differences between average outcome
-scores. The effect of controlling language on vaccine acceptance, for
-instance, is the difference between the average vaccine of participants
-exposed to controlling language and the average score of participants
-who were exposed to a campaign with neutral language.
-
 Different effects of controlling language for participants with low and
 participants with high health literacy imply different differences! The
 difference in average vaccine acceptance scores between people with low
 health literacy exposed to controlling language and people with low
 health literacy who are exposed to neutral language is different from
 the difference in average acceptance scores for people with high health
-literacy. We have four subgroups with average acceptance scores that we
-have to compare. We have six subgroups if we also include the autonomy
-supportive effect.
+literacy. We have six subgroups with average acceptance scores that we
+have to compare.
 
 ```{r}
 #| label: fig-anova-effectstrengthmod
@@ -1586,21 +1585,21 @@ among groups:
     difference is statistically significant if we correct for
     capitalization on chance.
 
-3.  If you want to interpret an interaction effect, create means plots
+3.  If you want to interpret an interaction effect, create means plots with confidence intervals, 
     such as @fig-ANOVAplots. Compare the differences between means
     across groups. In the left panel, for example, we see that the
     effect of health literacy on acceptance of vaccination information
     (the difference between the mean score of people with low health
     literacy and the mean score of people with high health literacy) is
-    larger for autonomy supportive language (pink box in the middle)
-    than for neutral language (pink box on the left), and it is smallest
-    for controlling language (pink box on the right). Similarly, we see
+    larger, with non overlapping confidence intervals, for autonomy supportive language (pink distance in the middle)
+    than for neutral language (pink distance on the left), and it is smallest
+    for controlling language (pink distance on the right). Similarly, we see
     that the effect of seeing the autonomy supportive campagin instead
     of the neutral campaign is larger for people with high healthy
-    literacy (right-hand panel, pink box on the right) than for people
-    with low health literacy (right-hand panel, pink box on the left).
+    literacy (right-hand panel, pink distance on the right) than for people
+    with low health literacy (right-hand panel, pink distance on the left).
 
-::: {#fig-ANOVAplots}
+::: {#fig-ANOVAplots .lightbox}
 ```{r ANOVAplots, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center'}
 knitr::include_graphics("figures/S7_AE2.png")
 ```

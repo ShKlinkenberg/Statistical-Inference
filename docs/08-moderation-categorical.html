@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>6&nbsp; Regression Analysis And A Categorical Moderator – Statistical Inference</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -59,7 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -89,15 +94,14 @@ div.csl-indent {
 <link href="./07-anova.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-da8f32ed4c15d05d0528d1d77f0704ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8361c3d3bdea9cefaebc78aa5210298e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -127,11 +131,9 @@ div.csl-indent {
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -185,9 +187,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Inference</a> 
         <div class="sidebar-tools-main">
@@ -205,7 +205,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction and Reader’s Guide</span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -330,7 +330,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">6.3</span> Take-Home Points</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/master/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/master/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -1015,10 +1015,10 @@ Upper Bound
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;color: white !important;background-color: #FDAE61 !important;">
+<td style="text-align:left;color: white !important;background-color: rgba(253, 174, 97, 1) !important;">
 (Constant)
 </td>
-<td style="text-align:right;color: #FDAE61 !important;">
+<td style="text-align:right;color: rgba(253, 174, 97, 1) !important;">
 0.900
 </td>
 <td style="text-align:right;">
@@ -1040,10 +1040,10 @@ Upper Bound
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: white !important;background-color: #2B83BA !important;">
+<td style="text-align:left;color: white !important;background-color: rgba(43, 131, 186, 1) !important;">
 Exposure
 </td>
-<td style="text-align:right;color: #2B83BA !important;">
+<td style="text-align:right;color: rgba(43, 131, 186, 1) !important;">
 -0.162
 </td>
 <td style="text-align:right;">
@@ -1066,10 +1066,10 @@ Exposure
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: white !important;background-color: #ABDDA4 !important;">
+<td style="text-align:left;color: white !important;background-color: rgba(171, 221, 164, 1) !important;">
 Status (smoker = 1, non-smoker = 0)
 </td>
-<td style="text-align:right;color: #ABDDA4 !important;">
+<td style="text-align:right;color: rgba(171, 221, 164, 1) !important;">
 1.980
 </td>
 <td style="text-align:right;">
@@ -1092,10 +1092,10 @@ Status (smoker = 1, non-smoker = 0)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: white !important;background-color: #D7191C !important;">
+<td style="text-align:left;color: white !important;background-color: rgba(215, 25, 28, 1) !important;">
 Exposure*Status (smoker)
 </td>
-<td style="text-align:right;color: #D7191C !important;">
+<td style="text-align:right;color: rgba(215, 25, 28, 1) !important;">
 -0.327
 </td>
 <td style="text-align:right;">
@@ -1173,16 +1173,16 @@ Exposure*Status (smoker)
 </div>
 </div>
 </div>
-<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS</code>. In the dialog box, we select the dependent variable (attitude) as <code>Y variable</code>, the predictor (exposure) as <code>X variable</code>, and the moderator (status2) as <code>Moderator variable W</code>. We select <code>Model 1</code> for a moderation model with one moderator. Under <code>Options</code>, we select <code>generate code to visualize interaction</code>, and we click on <code>OK</code> to run the analysis.</p>
+<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS</code>. In the dialog box, we select the dependent variable (attitude) as <code>Y variable</code>, the predictor (exposure) as <code>X variable</code>, and the moderator (status2) as <code>Moderator variable W</code>. We select <code>Model 1</code> for a moderation model with one moderator. Under <code>Options</code>, we select <code>generate data to visualize moderation</code>, <code>Model estimates only</code> and select some <code>Model diagnostics</code> to check the regression assumptions and click on <code>OK</code> to run the analysis.</p>
 <p>When PROCESS is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (<code>File &gt; New &gt; Syntax</code>), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.</p>
 <p>The plot shows the scatter plot for the relation between exposure and attitude for the two groups of the moderator (non-smokers and smokers). To add the regression lines, we can use the <code>Add Fit Line to subgroups</code> in the <code>Chart Editor</code>. The <code>Chart Editor</code> opens when we double click on the plot.</p>
 <div id="vid-PROCESS2cat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-PROCESS2cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/I6_ShDCM0vY?si=mOfkZNJ1zl1RScYd" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/vZLlcVoMVns" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-PROCESS2cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;6.6: Estimating categorical by numerical moderation with regression in SPSS using PROCESS.
+Video&nbsp;6.6: Running a moderation analysis with one dichotomous moderator.
 </figcaption>
 </figure>
 </div>
@@ -1512,14 +1512,14 @@ Video&nbsp;6.8: Creating dummy variables for categorical by numerical interactio
 </div>
 </div>
 </div>
-<p>In addition we have to let PROCESS know that we have a categorical moderator with more than two levels. We do this by clicking the <code>Multicategorical</code> button and indicating that the <code>Moderator variable W</code> is multicatigorical. Click <code>continue</code> and click on <code>OK</code> to run the analysis. <a href="#vid-SPSSrunModmorecat" class="quarto-xref">Video&nbsp;<span>6.9</span></a> shows how to use PROCESS to estimate a moderation model with a categorical moderator with more than two levels.</p>
+<p>In addition we have to let PROCESS know that we have a categorical moderator with more than two levels. We do this by clicking the <code>Multicategorical</code> button and indicating that the <code>Moderator variable W</code> is multicatigorical, with default settings <code>Combo Box: Indicator/dummy</code>. Click <code>continue</code> and click on <code>OK</code> to run the analysis. <a href="#vid-SPSSrunModmorecat" class="quarto-xref">Video&nbsp;<span>6.9</span></a> shows how to use PROCESS to estimate a moderation model with a categorical moderator with more than two levels.</p>
 <div id="vid-SPSSrunModmorecat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSSrunModmorecat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/WA7hSVy2bpA" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/3jRH9_8Bv-k" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSrunModmorecat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;6.9: Running a moderation analysis in SPSS using PROCESS with a categorical moderator with more than 2 levels and a continuous predictor.
+Video&nbsp;6.9: Running a moderation analysis in SPSS using PROCESS 5 with a categorical moderator with more than 2 levels and a continuous predictor.
 </figcaption>
 </figure>
 </div>
@@ -1551,7 +1551,7 @@ Figure&nbsp;6.16: How well do the observations cover the predictor within each c
 </figcaption>
 </figure>
 </div>
-<p>The variation of predictor scores for a particular value of the moderator is called <em>common support</em> <span class="citation" data-cites="RefWorks:3838">(<a href="14-references.html#ref-RefWorks:3838" role="doc-biblioref">Hainmueller, Mummolo, and Xu 2016</a>)</span>. If common support for predictors involved in moderation is poor, we should hesitate to draw conclusions from the estimated effects. Guidelines for good common support are hard to give. Common support is usually acceptable if there are observations over the entire range of the predictor.</p>
+<p>The variation of predictor scores for a particular value of the moderator is called <em>common support</em> <span class="citation" data-cites="RefWorks:3838">(<a href="14-references.html#ref-RefWorks:3838" role="doc-biblioref">Hainmueller et al. 2016</a>)</span>. If common support for predictors involved in moderation is poor, we should hesitate to draw conclusions from the estimated effects. Guidelines for good common support are hard to give. Common support is usually acceptable if there are observations over the entire range of the predictor.</p>
 <p>It is recommended to check the number of observations per value of the moderator. For a categorical moderator, such as smoking status, a scatter plot of the dependent variable (vertical axis) by predictor (horizontal axis) with dots coloured according to the moderator category may do the job. The left panel of <a href="#fig-common-support" class="quarto-xref">Figure&nbsp;<span>6.16</span></a> shows an example. Check that there are observations for more or less all values of the predictor in each color. If the scatter plot is hard to read, create a histogram of predictor values grouped by moderator categories, as in the right panel of <a href="#fig-common-support" class="quarto-xref">Figure&nbsp;<span>6.16</span></a>.</p>
 <section id="spss-check-common-support" class="level5">
 <h5 class="anchored" data-anchor-id="spss-check-common-support">SPSS check common support</h5>
@@ -1638,10 +1638,10 @@ Upper Bound
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;color: white !important;background-color: #FDAE61 !important;">
+<td style="text-align:left;color: white !important;background-color: rgba(253, 174, 97, 1) !important;">
 (Constant)
 </td>
-<td style="text-align:right;color: #FDAE61 !important;">
+<td style="text-align:right;color: rgba(253, 174, 97, 1) !important;">
 -0.087
 </td>
 <td style="text-align:right;">
@@ -1663,10 +1663,10 @@ Upper Bound
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: white !important;background-color: #2B83BA !important;">
+<td style="text-align:left;color: white !important;background-color: rgba(43, 131, 186, 1) !important;">
 Exposure
 </td>
-<td style="text-align:right;color: #2B83BA !important;">
+<td style="text-align:right;color: rgba(43, 131, 186, 1) !important;">
 -0.118
 </td>
 <td style="text-align:right;">
@@ -1689,10 +1689,10 @@ Exposure
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: white !important;background-color: #ABDDA4 !important;">
+<td style="text-align:left;color: white !important;background-color: rgba(171, 221, 164, 1) !important;">
 Smoker (0 = no, 1 = yes))
 </td>
-<td style="text-align:right;color: #ABDDA4 !important;">
+<td style="text-align:right;color: rgba(171, 221, 164, 1) !important;">
 1.982
 </td>
 <td style="text-align:right;">
@@ -1715,10 +1715,10 @@ Smoker (0 = no, 1 = yes))
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: white !important;background-color: #D7191C !important;">
+<td style="text-align:left;color: white !important;background-color: rgba(215, 25, 28, 1) !important;">
 Exposure*Smoker
 </td>
-<td style="text-align:right;color: #D7191C !important;">
+<td style="text-align:right;color: rgba(215, 25, 28, 1) !important;">
 -0.329
 </td>
 <td style="text-align:right;">
@@ -1847,9 +1847,9 @@ Video&nbsp;6.12: Visualizing moderation by regression lines in a scatterplot in 
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-RefWorks:3838" class="csl-entry" role="listitem">
-Hainmueller, Jens, Jonathan Mummolo, and Yiqing Xu. 2016. <span>“How Much Should We Trust Estimates from Multiplicative Interaction Models? Simple Tools to Improve Empirical Practice.”</span> <a href="https://doi.org/10.2139/ssrn.2739221">https://doi.org/10.2139/ssrn.2739221</a>.
+Hainmueller, Jens, Jonathan Mummolo, and Yiqing Xu. 2016. <em>How Much Should We Trust Estimates from Multiplicative Interaction Models? Simple Tools to Improve Empirical Practice</em>. <a href="https://doi.org/10.2139/ssrn.2739221">https://doi.org/10.2139/ssrn.2739221</a>.
 </div>
 <div id="ref-RefWorks:3873" class="csl-entry" role="listitem">
 Hayes, Andrew F. 2013. <em>Introduction to Mediation, Moderation, and Conditional Process Analysis: A Regression-Based Approach</em>. Guilford Press.
@@ -2280,4 +2280,4 @@ Hayes, Andrew F. 2013. <em>Introduction to Mediation, Moderation, and Conditiona
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/master/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/master/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

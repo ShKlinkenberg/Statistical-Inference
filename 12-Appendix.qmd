@@ -6,23 +6,13 @@ source("R_setup.R")
 
 ## Flow chart statistical test selection {-}
 
-The flow chart in @fig-choice-diagram-copy helps you select the appropriate statistical test based on the type of dependent and independent variables. 
+In @sec-test-selection, we discussed how to select the right statistical test for your research question. Below you can find all representations of the test selection scheme.
 
-It helps in the learning proces to think of different research designs for each test. Try to think of one for the independent samples _t_-test. Work your way from right to left to determine the type of variables and think of some research that conforms to this.
-
-```{r}
-#| label: fig-choice-diagram-copy
-#| fig-cap: "Flow chart for statistical test selection."
-#| echo: false
-#| warning: false
-#| fig-width: 12
-
-source("flowchart.R")
-p
-rm(p)
-```
-
-An interactive tool for test selection made by [Matt Jackson-Wood](https://scholar.google.co.uk/citations?user=MUanZDgAAAAJ&hl=en) can be found [here](https://www.statsflowchart.co.uk).
+* [Interactive test selection table](https://shklinkenberg.github.io/statistical-test-selection/interactive_test_selection_table.html)
+* [PDF table for statistical test selection](https://shklinkenberg.github.io/statistical-test-selection/table_typst.pdf)
+* [Observable interactive graph for statistical test selection](https://shklinkenberg.github.io/statistical-test-selection/observable_interactive_graph.html)
+* [Mermaid flowchart for statistical test selection (pan and zoom)](https://shklinkenberg.github.io/statistical-test-selection/mermaid_flowchart.html)
+* [Mermaid flowchart for statistical test selection (PDF)](https://shklinkenberg.github.io/statistical-test-selection/mermaid_flowchart_pdf.pdf)
 
 ## All SPSS Tutorial Videos List {-}
 

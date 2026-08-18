@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>5&nbsp; Analysis of Variance (ANOVA) and Moderation – Statistical Inference</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -24,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -54,15 +59,14 @@ div.csl-indent {
 <link href="./04-hypothesis.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-da8f32ed4c15d05d0528d1d77f0704ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8361c3d3bdea9cefaebc78aa5210298e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -92,11 +96,9 @@ div.csl-indent {
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -128,7 +130,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styleX.css">
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -150,9 +152,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Inference</a> 
         <div class="sidebar-tools-main">
@@ -170,7 +170,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction and Reader’s Guide</span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -300,7 +300,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">5.7</span> Take-Home Points</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/07-anova.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/07-anova.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/master/07-anova.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/master/07-anova.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -339,7 +339,7 @@ window.Quarto = {
 <p>In our example, we are interested in a second independent variable, namely health literacy. With two or more factors, we can have interaction effects in addition to main effects. An interaction effect is the joint effect of two or more factors on the dependent variable. An interaction effect is best understood as different effects of one factor across different groups on another factor. For example, autonomy supportive language may increase vaccine acceptance for people with high health literacy but controlling language might work best for people with low health literacy.</p>
 <p>The phenomenon that a variable can have different effects for different groups on another variable is called moderation. We usually think of one factor as the predictor (or independent variable) and the other factor as the moderator. The moderator (e.g., health literacy) changes the effect of the predictor (e.g., campaign style) on the dependent variable (e.g., vaccine acceptance).</p>
 </section>
-<section id="different-means-for-three-or-more-groups" class="level2" data-number="5.1">
+<section id="different-means-for-three-or-more-groups" class="level2 page-columns page-full" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="different-means-for-three-or-more-groups"><span class="header-section-number">5.1</span> Different Means for Three or More Groups</h2>
 <p>Communication scientists have shown that campaign messages are more likely to be effective if they are designed based on theoretical insights <span class="citation" data-cites="fishbeinRoleTheoryDeveloping2006">(<a href="14-references.html#ref-fishbeinRoleTheoryDeveloping2006" role="doc-biblioref">Fishbein and Cappella 2006</a>)</span>. For instance, Protection Motivation Theory <span class="citation" data-cites="rogersProtectionMotivationTheory1975">(<a href="14-references.html#ref-rogersProtectionMotivationTheory1975" role="doc-biblioref">Rogers 1975</a>)</span> suggests that controlling language including threats can be persuasive by motivating people to take action to avoid harm and Self-Determination Theory <span class="citation" data-cites="deciIntrinsicMotivationSelfDetermination2013">(<a href="14-references.html#ref-deciIntrinsicMotivationSelfDetermination2013" role="doc-biblioref">Deci and Ryan 2013</a>)</span> supports the idea that autonomy-supportive language exerts impact by fostering a sense of choice and personal motivation.</p>
 <p>Imagine that we want to test if using theory to design language used in a campaign makes a difference to people’s vaccine acceptance. We will be using either autonomy supportive language or controlling language in the theory-based campaigns, and we will include a campaign with neutral language as a control condition.</p>
@@ -380,7 +380,7 @@ Figure&nbsp;5.2: A means plot showing that average vaccine literacy is higher in
 </div>
 </div>
 <p>Effect size in an analysis of variance refers to the overall differences between group means. We use eta<sup>2</sup> as effect size, which gives the proportion of variance in the dependent variable (acceptance of vaccination information) explained or predicted by the group variable (experimental condition).</p>
-<p>This proportion is informative and precise. If you want to classify the effect size in more general terms, you should take the square root of eta<sup>2</sup> to obtain <em>eta</em>. As a measure of association, eta<sup>2</sup> can be interpreted with the following rules of thumb:</p>
+<p>This proportion is informative and precise. If you want to classify the effect size in more general terms, you should take the square root of eta<sup>2</sup> to obtain <em>eta</em>. As a measure of association, eta can be interpreted with the following rules of thumb:</p>
 <ul>
 <li>0 – 0.1: non to weak effect</li>
 <li>0.1 – 0.3: weak effect</li>
@@ -439,7 +439,7 @@ Figure&nbsp;5.3: Which part of score differences tells us about the differences 
 <p>The assumption of equal population variances is less important if group samples are more or less of equal size (a balanced design, see <a href="#sec-balanced" class="quarto-xref"><span>Section 5.3.2</span></a>). We use a rule of thumb that groups are of equal size if the size of the largest group is less than 10% (of the largest group) larger than the size of the smallest group. If this is the case, we do not care about the assumption of homogeneous population variances.</p>
 </section>
 </section>
-<section id="which-groups-have-different-average-scores" class="level3" data-number="5.1.5">
+<section id="which-groups-have-different-average-scores" class="level3 page-columns page-full" data-number="5.1.5">
 <h3 data-number="5.1.5" class="anchored" data-anchor-id="which-groups-have-different-average-scores"><span class="header-section-number">5.1.5</span> Which groups have different average scores?</h3>
 <p>Analysis of variance tests the null hypothesis of equal population means but it does not yield confidence intervals for group means. It does not always tell us which groups score significantly higher or lower.</p>
 <div id="fig-anova-posthoc" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -453,7 +453,7 @@ Figure&nbsp;5.4: Which groups have different average outcome scores in the popul
 </figcaption>
 </figure>
 </div>
-<p>If the <em>F</em> test is statistically significant, we reject the null hypothesis that all groups have the same population mean on the dependent variable. In our current example, we reject the null hypothesis that average vaccine acceptance is equal for people who saw a campaign with autonomy supportive, controlling or neutral language. In other words, we <em>reject</em> the null hypothesis that the campaign style (or lagnuage used) does <em>not</em> matter to vaccine acceptance.</p>
+<p>If the <em>F</em> test is statistically significant, we reject the null hypothesis that all groups have the same population mean on the dependent variable. In our current example, we reject the null hypothesis that average vaccine acceptance is equal for people who saw a campaign with autonomy supportive, controlling or neutral language. In other words, we <em>reject</em> the null hypothesis that the campaign style (or language used) does <em>not</em> matter to vaccine acceptance.</p>
 <section id="pairwise-comparisons-as-post-hoc-tests" class="level4" data-number="5.1.5.1">
 <h4 data-number="5.1.5.1" class="anchored" data-anchor-id="pairwise-comparisons-as-post-hoc-tests"><span class="header-section-number">5.1.5.1</span> Pairwise comparisons as post-hoc tests</h4>
 <p>With a statistically significant <em>F</em> test for the analysis of variance model, several questions remain to be answered. Does a controlling campaign style increase or decrease the acceptance of vaccination information? Are both campaign styles equally effective? The <em>F</em> test does not provide answers to these questions. We have to compare groups one by one to see which condition (campaign style) is associated with a higher level vaccine acceptance.</p>
@@ -467,11 +467,14 @@ Figure&nbsp;5.4: Which groups have different average outcome scores in the popul
 <p>Analysis of variance, then, consists of two steps. In the first step, we test the general null hypothesis that all groups have equal average scores on the dependent variable in the population. If we cannot reject this null hypothesis, we have too little evidence to conclude that there are differences between the groups. Our analysis of variance stops here, although it is recommended to report the confidence intervals of the group means to inform the reader. Perhaps our sample was just too small to reject the null hypothesis.</p>
 <p>If the <em>F</em> test is statistically significant, we proceed to the second step. Here, we apply independent-samples <em>t</em> tests with Bonferroni correction to each pair of groups to see which groups have significantly different means. In our example, we would compare the autonomy supportive and controlling groups to the group with neutral language to see if a strong campaign style increases acceptance of vaccination information, and, if so, how much. In addition, we would compare the autonomy supportive and controlling groups to see if one campaign style is more effective than the other.</p>
 </section>
-<section id="contradictory-results" class="level4" data-number="5.1.5.3">
+<section id="contradictory-results" class="level4 page-columns page-full" data-number="5.1.5.3">
 <h4 data-number="5.1.5.3" class="anchored" data-anchor-id="contradictory-results"><span class="header-section-number">5.1.5.3</span> Contradictory results</h4>
 <p>It may happen that the <em>F</em> test on the model is statistically significant but none of the post-hoc tests is statistically significant. This mainly happens when the <em>p</em> value of the <em>F</em> test is near .05. Perhaps the correction for capitalization on chance is too strong; this is known to be the case with the Bonferroni correction. Alternatively, the sample can be too small for the post-hoc test. Note that we have fewer observations in a post-hoc test than in the <em>F</em> test because we only look at two of the groups.</p>
 <p>This situation illustrates the limitations of null hypothesis significance tests (<a href="04-hypothesis.html#sec-critical-discussion" class="quarto-xref"><span>Section 4.7</span></a>). Remember that the 5 per cent significance level remains an arbitrary boundary and statistical significance depends a lot on sample size. So do not panic if the <em>F</em> and <em>t</em> tests have contradictory results.</p>
-<p>A statistically significant <em>F</em> test tells us that we may be quite confident that at least two group means are different in the population. If none of the post-hoc <em>t</em> tests is statistically significant, we should note that it is difficult to pinpoint the differences. Nevertheless, we should report the sample means of the groups (and their standard deviations) as well as the confidence intervals of their differences as reported in the post-hoc test. The two groups that have most different sample means are most likely to have different population means.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Download: <a href="data/vaccine.sav">vaccine.sav</a></p>
+</div></div><p>A statistically significant <em>F</em> test tells us that we may be quite confident that at least two group means are different in the population. If none of the post-hoc <em>t</em> tests is statistically significant, we should note that it is difficult to pinpoint the differences. Nevertheless, we should report the sample means of the groups (and their standard deviations) as well as the confidence intervals of their differences as reported in the post-hoc test. The two groups that have most different sample means are most likely to have different population means.</p>
 </section>
 </section>
 </section>
@@ -551,7 +554,7 @@ Table&nbsp;5.1: Number of observations per subgroup in a balanced 3x2 factorial 
 </figcaption>
 <div aria-describedby="tbl-anova-balanced-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<table class="table cell caption-top table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -598,7 +601,7 @@ Table&nbsp;5.1: Number of observations per subgroup in a balanced 3x2 factorial 
 <img src="07-anova_files/figure-html/fig-anova-meansplot2-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-meansplot2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.6: Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of langugae conditions and having high health literacy are represented by arrows and dashed lines.
+Figure&nbsp;5.6: Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of language conditions and having high health literacy are represented by arrows and dashed lines.
 </figcaption>
 </figure>
 </div>
@@ -610,7 +613,7 @@ Figure&nbsp;5.6: Means plots for the main effects of language condition and heal
 <img src="07-anova_files/figure-html/fig-anova-meansplot2-2.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-meansplot2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.7: Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of langugae conditions and having high health literacy are represented by arrows and dashed lines.
+Figure&nbsp;5.7: Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of language conditions and having high health literacy are represented by arrows and dashed lines.
 </figcaption>
 </figure>
 </div>
@@ -659,8 +662,7 @@ Figure&nbsp;5.9: How can we recognize main effects and moderation in a means plo
 <section id="effect-strength-moderation" class="level4" data-number="5.4.1.1">
 <h4 data-number="5.4.1.1" class="anchored" data-anchor-id="effect-strength-moderation"><span class="header-section-number">5.4.1.1</span> Effect strength moderation</h4>
 <p>Moderation refers to contexts that strengthen or diminish the effect of, for instance, a media campaign. Let us refer to this type of moderation as <em>effect strength moderation</em>. In our current example, we would hypothesize that the effect of using controlling language is stronger for participants with low health literacy than for participants with high health literacy.</p>
-<p>In analysis of variance, effects are differences between average outcome scores. The effect of controlling language on vaccine acceptance, for instance, is the difference between the average vaccine of participants exposed to controlling language and the average score of participants who were exposed to a campaign with neutral language.</p>
-<p>Different effects of controlling language for participants with low and participants with high health literacy imply different differences! The difference in average vaccine acceptance scores between people with low health literacy exposed to controlling language and people with low health literacy who are exposed to neutral language is different from the difference in average acceptance scores for people with high health literacy. We have four subgroups with average acceptance scores that we have to compare. We have six subgroups if we also include the autonomy supportive effect.</p>
+<p>Different effects of controlling language for participants with low and participants with high health literacy imply different differences! The difference in average vaccine acceptance scores between people with low health literacy exposed to controlling language and people with low health literacy who are exposed to neutral language is different from the difference in average acceptance scores for people with high health literacy. We have six subgroups with average acceptance scores that we have to compare.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-anova-effectstrengthmod" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -944,9 +946,9 @@ Figure&nbsp;5.15: SPSS table of main and interaction effects in a two-way analys
 <ol type="1">
 <li><p>If there are two groups on a factor, for example, low and high health literacy, compare the two group means: Which group scores higher? For example, people with high health literacy score on average 5.05 on vaccine acceptance whereas the average acceptance is only 4.19 for people with low health literacy. The <em>F</em> test shows whether or not the difference between the two groups is statistically significant.</p></li>
 <li><p>If a factor has more than two groups, for example, neutral, controlling or autonomy supportive language, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.</p></li>
-<li><p>If you want to interpret an interaction effect, create means plots such as <a href="#fig-ANOVAplots" class="quarto-xref">Figure&nbsp;<span>5.16</span></a>. Compare the differences between means across groups. In the left panel, for example, we see that the effect of health literacy on acceptance of vaccination information (the difference between the mean score of people with low health literacy and the mean score of people with high health literacy) is larger for autonomy supportive language (pink box in the middle) than for neutral language (pink box on the left), and it is smallest for controlling language (pink box on the right). Similarly, we see that the effect of seeing the autonomy supportive campagin instead of the neutral campaign is larger for people with high healthy literacy (right-hand panel, pink box on the right) than for people with low health literacy (right-hand panel, pink box on the left).</p></li>
+<li><p>If you want to interpret an interaction effect, create means plots with confidence intervals, such as <a href="#fig-ANOVAplots" class="quarto-xref">Figure&nbsp;<span>5.16</span></a>. Compare the differences between means across groups. In the left panel, for example, we see that the effect of health literacy on acceptance of vaccination information (the difference between the mean score of people with low health literacy and the mean score of people with high health literacy) is larger, with non overlapping confidence intervals, for autonomy supportive language (pink distance in the middle) than for neutral language (pink distance on the left), and it is smallest for controlling language (pink distance on the right). Similarly, we see that the effect of seeing the autonomy supportive campagin instead of the neutral campaign is larger for people with high healthy literacy (right-hand panel, pink distance on the right) than for people with low health literacy (right-hand panel, pink distance on the left).</p></li>
 </ol>
-<div id="fig-ANOVAplots" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-ANOVAplots" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ANOVAplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
@@ -1030,7 +1032,7 @@ Video&nbsp;5.7: Calculating <span class="math inline">\(\eta^2\)</span> and part
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-deciIntrinsicMotivationSelfDetermination2013" class="csl-entry" role="listitem">
 Deci, Edward L., and Richard M. Ryan. 2013. <em>Intrinsic <span>Motivation</span> and <span>Self</span>-<span>Determination</span> in <span>Human</span> <span>Behavior</span></em>. Springer Science &amp; Business Media.
 </div>
@@ -1041,7 +1043,7 @@ Fishbein, M., and J. N. Cappella. 2006. <span>“The Role of Theory in Developin
 Fisher, R. A. 1919. <span>“The Correlation Between Relatives on the Supposition of Mendelian Inheritance.”</span> <em>Transactions of the Royal Society of Edinburgh</em> 52 (2): 399–433. <a href="https://doi.org/10.1017/S0080456800012163">https://doi.org/10.1017/S0080456800012163</a>.
 </div>
 <div id="ref-HolbertConceptualizingOrganizingPositing2019" class="csl-entry" role="listitem">
-Holbert, R. Lance, and Esul Park. 2019. <span>“Conceptualizing, <span>Organizing</span>, and <span>Positing Moderation</span> in <span>Communication Research</span>.”</span> <em>Communication Theory</em>, April. <a href="https://doi.org/10.1093/ct/qtz006">https://doi.org/10.1093/ct/qtz006</a>.
+Holbert, R. Lance, and Esul Park. 2019. <span>“Conceptualizing, <span>Organizing</span>, and <span>Positing Moderation</span> in <span>Communication Research</span>.”</span> <em>Communication Theory</em>, ahead of print, April. <a href="https://doi.org/10.1093/ct/qtz006">https://doi.org/10.1093/ct/qtz006</a>.
 </div>
 <div id="ref-rogersProtectionMotivationTheory1975" class="csl-entry" role="listitem">
 Rogers, R. W. 1975. <span>“A <span>Protection</span> <span>Motivation</span> <span>Theory</span> of <span>Fear</span> <span>Appeals</span> and <span>Attitude</span> <span>Change1</span>: <span>The</span> <span>Journal</span> of <span>Psychology</span>: <span>Vol</span> 91, <span>No</span> 1.”</span> <em>THe Journal of Psychology</em> 91 (1): 93–114. <a href="https://www.tandfonline.com/doi/abs/10.1080/00223980.1975.9915803?casa_token=tnl4hHdJsB0AAAAA:T1RIciCaIhUSOxB2By3Ah9nZPbufTPANLbbdgCujfE-yZr6cugamG3pBECgsGroUDXf02-k1XlEzOw">https://www.tandfonline.com/doi/abs/10.1080/00223980.1975.9915803?casa_token=tnl4hHdJsB0AAAAA:T1RIciCaIhUSOxB2By3Ah9nZPbufTPANLbbdgCujfE-yZr6cugamG3pBECgsGroUDXf02-k1XlEzOw</a>.
@@ -1472,4 +1474,4 @@ Rogers, R. W. 1975. <span>“A <span>Protection</span> <span>Motivation</span> <
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/07-anova.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/07-anova.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/master/07-anova.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/master/07-anova.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

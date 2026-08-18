@@ -95,7 +95,7 @@ Thus, we can create an exact probability distribution for the combination of col
 
 If SPSS offers an exact approach of the sampling distribution, the test dialog window contains an `Exact` button. We can find this in the dialog window for creating a contingency table (`Analyze > descriptive statistics > crosstab`) and in several legacy dialogs for non-parametric tests (`Analyze > nonparametric tests > legacy dialogs`). In the Exact dialog, we check the `Exact` option and SPSS automatically sets an upper limit of five minutes to the execution of the command. We can leave this at five minutes (see @sec-comp-int for why we have to do this).
 
-As established, we have two categorical variables with two categories. To correct statistical test for these variables is a Chi Square test. Don't worry - we will discuss this in more detail later, but you can already have a brief look at the test selection table (@sec-test-selection). Within the dialog window `crosstabs` we open the `Statistics` dialog to select Chi-square and we open the `Exact` dialog to select the option `Exact`.
+As established, we have two categorical variables with two categories. The correct statistical test for these variables is a Chi Square test. Don't worry - we will discuss this in more detail later, but you can already have a brief look at the test selection table (@sec-test-selection). Within the dialog window `crosstabs` we open the `Statistics` dialog to select Chi-square and we open the `Exact` dialog to select the option `Exact`.
 
 _Note_. A Fisher's exact test is automatically run when there is a 2x2 contingency table. When we perform this test on larger contingency tables we need to select the `Exact` option, which is why we teach it to you here.
 
@@ -127,7 +127,7 @@ The video shows you the different tables that yield from the analysis. Output fr
 
 The second table shows us the crosstabulation with the added percentages for all columns. The percentages alone can already give you a good idea about the nature of your results and can help you interpret the test statistics. 
 
-In the third table, _chi square tests_, we can see our test statistics and values like the p-value. In the third row you can find Fisher's Exact Test. Here, you find the numbers you need to report the results of your statistical test. The p-value tells us whether an effect is significant or not based on this sample. A p-value that is smaller than .05 is commonly considered to indicate significance. There is more to this, but we will elaborate in Chapter 4. If you find a significant results, like shown in the video, the percentages (in the crosstabulation or second table) can help you interpret which groups differ from each other and in which way. 
+In the third table, _chi square tests_, we can see our test statistics and values like the p-value. In the third row you can find Fisher's Exact Test. Here, you find the numbers you need to report the results of your statistical test. The p-value tells us whether an effect is significant or not based on this sample. A p-value that is smaller than .05 is commonly considered to indicate significance. There is more to this, but we will elaborate in Chapter 4. If you find a significant result, like shown in the video, the percentages (in the crosstabulation or second table) can help you interpret which groups differ from each other and in which way. 
 
 The fourth table, _symmetric measures_, shows us the effect size. In this case we conclude there is a moderate association between candy stickiness and colour.
 
@@ -239,7 +239,12 @@ For most of these theoretical probability distributions, sample size is importan
 #| echo: false
 #| warning: false
 
-knitr::kable(rbind(c("Binomial distribution", "proportion", "-", "-"), c("(Standard) normal distribution", "proportion", "times test proportion (<= .5) >= 5", "-"), c("(Standard) normal distribution", "one or two means", "> 100", "OR variable is normally distributed in the population and population standard deviation is known (for each group)"), c("t distribution", "one or two means", "each group > 30", "OR variable is normally distributed in each group's population"), c("t distribution", "(Pearson) correlation coefficient", "-", "variables are normally distributed in the population"), c("t distribution", "(Spearman) rank correlation coefficient", "> 30", "-"), c("t distribution", "regression coefficient", "20+ per independent variable", "See Chapter 8."), c("F distribution", "3+ means", " all groups are more or less of equal size", "OR all groups have the same population variance"), c("F distribution", "two variances", "-", "no conditions for Levene's F test"), c("chi-squared distribution", "row or cell frequencies", "expected frequency >= 1 and 80% >= 5", "contingency table: 3+ rows or 3+ columns")), booktabs = TRUE, col.names = c("Distribution", "Sample statistic", "Minimum sample size", "Other requirements")) %>%
+knitr::kable(rbind(c("(Standard) normal distribution", "proportion", "times test proportion (<= .5) >= 5", "-"), 
+                   c("(Standard) normal distribution", "one or two means", "> 100", "OR variable is normally distributed in the population and population standard deviation is known (for each group)"), c("t distribution", "one or two means", "each group > 30", "OR variable is normally distributed in each group's population"), 
+                   c("t distribution", "(Pearson) correlation coefficient", "-", "variables are normally distributed in the population"), 
+                   c("t distribution", "(Spearman) rank correlation coefficient", "> 30", "-"), c("t distribution", "regression coefficient", "20+ per independent variable", "See Chapter 8."), 
+                   c("F distribution", "3+ means", " all groups are more or less of equal size", "OR all groups have the same population variance"), 
+                   c("F distribution", "two variances", "-", "no conditions for Levene's F test"), c("chi-squared distribution", "row or cell frequencies", "expected frequency >= 1 and 80% >= 5", "contingency table: 3+ rows or 3+ columns")), booktabs = TRUE, col.names = c("Distribution", "Sample statistic", "Minimum sample size", "Other requirements")) %>%
   kable_styling(font_size = 12, latex_options = c("HOLD_position", "scale_down"))
 ```
 
@@ -344,7 +349,7 @@ By default, SPSS uses a theoretical probability distribution to approximate the 
 
 In one case, SPSS automatically selects an exact approach if the conditions for a theoretical approximation are not met. If you apply a chi-squared test to a contingency table in SPSS, SPSS will automatically apply Fisher's exact test if the table has two rows and two columns. In all other cases, you have to select bootstrapping or an exact approach yourself if the conditions for a theoretical approximation are not met.
 
-We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters. The default approach in SPSS means that if we conduct an analysis in SPSS without changing the settings to include an exact approach or bootstrapping (which you will learn in the next paragraph), we are using a theoertical approximation on our data.
+We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters. The default approach in SPSS means that if we conduct an analysis in SPSS without changing the settings to include an exact approach or bootstrapping (which you will learn in the next paragraph), we are using a theoretical approximation on our data.
 
 ## The Bootstrap Approximation of the Sampling Distribution {#sec-boot-approx}
 
@@ -453,7 +458,7 @@ Bootstrapping is more or less the only way to get a sampling distribution for th
 
 The last approach we will show you in SPSS is bootstrapping. In the video below you will see several analyses to which we add bootstrapping. 
 
-Remember your birthday party with a lot of candy that sparks new questions every couple of minutes? This time one friend is getting a bit nauseous from the candy and another friend is doing just fine. They conclude they both have been eating the same amount of candy but one has a preference for strawberry flavoured and the other for lemon flavoured. Could it be that the friend who is constantly eating red candies has been eating more cnady than the friend that has been eating yellow candies? According to your friends, that could only be true if the red candies weigh more than the yellow candies.
+Remember your birthday party with a lot of candy that sparks new questions every couple of minutes? This time one friend is getting a bit nauseous from the candy and another friend is doing just fine. They conclude they both have been eating the same amount of candy but one has a preference for strawberry flavoured and the other for lemon flavoured. Could it be that the friend who is constantly eating red candies has been eating more candy than the friend that has been eating yellow candies? According to your friends, that could only be true if the red candies weigh more than the yellow candies.
 
 In this case, we are investigating whether yellow and red candies weigh the same amount. Thus, we have two variables: candy colour (red and yellow; two categories) and candy weight (continuous). As you can see in @sec-test-selection, we can investigate these variables with an independent t-test. This independent t-test is shown in the video.
 
@@ -477,7 +482,7 @@ Now that we have run the analysis in SPSS, we want to show you how to interpret 
 
 As with the Fisher's exact test, the output starts - after a table with some bootstrap specifications - with a summary type table including descriptive like results. The _group statistics_, here we can find the number of cases (candies), means, standard deviations, etc. The means can already give you a sense of and a grip on your results, which can help with interpretation later on.
 
-The table below, _independent samples test_, shows us the results of the independent samples t-test, including Leven's F-test, the test statistic, p-value and bootstrapped confidence interval. Levene's F-test is above .05 which leads us to conclude that equal variances are assumed (we will talk more about this during ANOVA, in chapter 5). This means we look at the upper row for our results. The t-value has a corresponding p-value that is also above .05 which menas that the effect of candy colour on candy weight is not significant. 
+The table below, _independent samples test_, shows us the results of the independent samples t-test, including Levene's F-test, the test statistic, p-value and bootstrapped confidence interval. Levene's F-test is above .05 which leads us to conclude that equal variances are assumed (we will talk more about this during ANOVA, in chapter 5). This means we look at the upper row for our results. The t-value has a corresponding p-value that is also above .05 which means that the effect of candy colour on candy weight is not significant. 
 
 The second part of the _independent samples test_ shows us the mean difference which is very small, this makes sense given the fact that we found a not significant result. The bootstrapped confidence intervals show that the zero falls in the 95% interval. This means that there is a likelihood that the mean difference could be zero. Thus, looking at the intervals we would also conclude that the effect is not significant. 
 

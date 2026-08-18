@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>3&nbsp; Estimating a Parameter – Statistical Inference</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -24,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -54,15 +59,14 @@ div.csl-indent {
 <link href="./02-probability.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-da8f32ed4c15d05d0528d1d77f0704ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8361c3d3bdea9cefaebc78aa5210298e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -92,7 +96,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -146,9 +150,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Inference</a> 
         <div class="sidebar-tools-main">
@@ -166,7 +168,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction and Reader’s Guide</span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -275,7 +277,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">3.7</span> Take-Home Points</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/master/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/master/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -498,7 +500,7 @@ Figure&nbsp;3.7: Confidence intervals from replications
 </figcaption>
 </figure>
 </div>
-<p>Instead of checking whether a sample mean is inside or outside of the interval estimate of the <strong>population mean</strong> (<a href="#sec-crit-values" class="quarto-xref"><span>Section 3.4</span></a>), we use the interval estimate around that one <strong>sample mean</strong>, to check whether this interval catches the population mean. These two ways are equivalent, but the second way does not require us to know the population mean. This is because the interval estimate around the sample means catches the population mean in 95% of the times, regardless if the population mean is known or not. We call such an interval estimate around the sample mean a <strong>95% confidence interval</strong>.</p>
+<p>Instead of checking whether a sample mean is inside or outside of the interval estimate of the <strong>population mean</strong> (<a href="#sec-crit-values" class="quarto-xref"><span>Section 3.4</span></a>), we use the interval estimate around that one <strong>sample mean</strong>, to check whether this interval catches the population mean. These two ways are equivalent, but the second way does not require us to know the population mean. This is because the interval estimate around the sample means catches the population mean in about 95% of the times, regardless if the population mean is known or not. We call such an interval estimate around the sample mean a <strong>95% confidence interval</strong>.</p>
 <p>The middle plot of <a href="#fig-pop-ci-sampling" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>, shows the 95% confidence interval for a single sample, from the population distribution in the top graph. The green line indicates that the interval estimate around the sample mean catches the population mean. The average candy weight in this samples of <span class="math inline">\(N=30\)</span> is 2.95 grams and the lower and upper boundary for 95% confidence interval are 2.59 grams and 3.32 grams. We use the blue vertical dashed line to indicate the population mean, which in reality we do not know. Though, in this simulation, we can see that the green 95% confidence interval catches the population mean.</p>
 <p>Now, increase the number of times of samples (replications) by adjusting the slider in <a href="#fig-pop-ci-sampling" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>. The middle plot now shows how many of the samples with a 95% confidence intervals catch the population mean, indicated by the green lines. The red lines indicate that the 95% confidence interval does not catch the population mean. The percentage that catch the population mean approaches 95% as the number of samples gets higher.</p>
 <p>Now, also increase the sample size in <a href="#fig-pop-ci-sampling" class="quarto-xref">Figure&nbsp;<span>3.7</span></a> by moving the slider. We see that, in the middle plot, all confidence intervals become narrower. We therefore are much more confident in our estimation of the population mean with a larger sample size.</p>
@@ -557,7 +559,7 @@ Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
 <h3 data-number="3.5.2" class="anchored" data-anchor-id="sec-bootstrap-confidenceinterval"><span class="header-section-number">3.5.2</span> Confidence intervals with bootstrapping</h3>
 <p>If we approximate the sampling distribution with a theoretical probability distribution such as the normal (<em>z</em>) or <em>t</em> distribution, critical values and the standard error are used to calculate the confidence interval (see <a href="#sec-fixed-pop-values" class="quarto-xref"><span>Section 3.5.1</span></a>).</p>
 <p>There are theoretical probability distributions that do not work with a standard error, such as the <em>F</em> distribution or chi-squared distribution. If we use those distributions to approximate the sampling distribution of a continuous sample statistic, for instance, the association between two categorical variables, we cannot use the formula for a confidence interval (<a href="#sec-fixed-pop-values" class="quarto-xref"><span>Section 3.5.1</span></a>) because we do not have a standard error. We must use bootstrapping to obtain a confidence interval.</p>
-<p>As you might remember from <a href="02-probability.html#sec-boot-approx" class="quarto-xref"><span>Section 2.5</span></a>, we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval. We will encounter the bootstrapping method for confidence intervals around regression coefficient of mediator again in <a href="11-mediation.html" class="quarto-xref"><span>Chapter 9</span></a>.</p>
+<p>As you might remember from <a href="02-probability.html#sec-boot-approx" class="quarto-xref"><span>Section 2.5</span></a>, we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval. We will revisit the bootstrap method for constructing confidence intervals around mediator regression coefficients in <a href="11-mediation.html" class="quarto-xref"><span>Chapter 9</span></a>.</p>
 <p>It is also possible to construct the entire sampling distribution in exact approaches to the sampling distribution. Both the standard error and percentiles can be used to create confidence intervals. This can be very demanding in terms of computer time, so exact approaches to the sampling distribution usually only report <em>p</em> values (see <a href="04-hypothesis.html#sec-pvalue" class="quarto-xref"><span>Section 4.2.6</span></a>), not confidence intervals.</p>
 </section>
 </section>
@@ -639,7 +641,7 @@ Video&nbsp;3.1: Displays the 95% confidence intervals in SPSS.
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-hoekstra2014robust" class="csl-entry" role="listitem">
 Hoekstra, Rink, Richard D Morey, Jeffrey N Rouder, and Eric-Jan Wagenmakers. 2014. <span>“Robust Misinterpretation of Confidence Intervals.”</span> <em>Psychonomic Bulletin &amp; Review</em> 21: 1157–64.
 </div>
@@ -1072,4 +1074,4 @@ Neyman, Jerzy. 1937. <span>“Outline of a Theory of Statistical Estimation Base
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/master/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/master/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

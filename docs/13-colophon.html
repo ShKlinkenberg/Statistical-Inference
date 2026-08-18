@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Colophon – Statistical Inference</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -34,15 +40,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="./12-Appendix.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-da8f32ed4c15d05d0528d1d77f0704ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8361c3d3bdea9cefaebc78aa5210298e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -97,9 +102,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Inference</a> 
         <div class="sidebar-tools-main">
@@ -117,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction and Reader’s Guide</span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -208,10 +211,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#rewrite" id="toc-rewrite" class="nav-link" data-scroll-target="#rewrite">2024 Rewrite</a></li>
   <li><a href="#bookdown-to-quarto-migration" id="toc-bookdown-to-quarto-migration" class="nav-link" data-scroll-target="#bookdown-to-quarto-migration">2025 Bookdown to quarto migration</a></li>
   <li><a href="#rewrite-1" id="toc-rewrite-1" class="nav-link" data-scroll-target="#rewrite-1">2025 Rewrite</a></li>
+  <li><a href="#updates" id="toc-updates" class="nav-link" data-scroll-target="#updates">2026 updates</a></li>
   <li><a href="#contribute" id="toc-contribute" class="nav-link" data-scroll-target="#contribute">Contribute</a></li>
   <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/13-colophon.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/13-colophon.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/master/13-colophon.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/master/13-colophon.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -271,13 +275,18 @@ ul.task-list li input[type="checkbox"] {
 <p>In addition the moderation analysis with continuous variables has been rewritten by <a href="https://www.linkedin.com/in/sharonklinkenberg/">Sharon Klinkenberg</a>. The chapter now uses the PROCESS macro by Andrew Hayes to analyse the moderation. Manual calculation of dummy variables and interaction terms has been removed. New videaos have been recorded to explain the new approach.</p>
 <p>In all chapters textual explanations have been added to the SPSS videos by <a href="https://www.linkedin.com/in/jolijn-van-den-hout-b54b33192/">Jolijn van den Hout</a> to improve the readability and accessibility of the book.</p>
 </section>
+<section id="updates" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="updates">2026 updates</h3>
+<p>In the 2026 update <a href="https://www.linkedin.com/in/sharonklinkenberg/">Sharon Klinkenberg</a> has added the SPSS basics section on data wrangling and visualization to the introduction chapter. <a href="https://www.linkedin.com/in/christin-scholz-7a07264b/?originalSubdomain=nl">Christin Scholz</a> has revised <a href="04-hypothesis.html" class="quarto-xref">Chapter&nbsp;<span>4&nbsp; Hypothesis testing</span></a> to make the text more accessible and less convoluted, while Sharon updated the <a href="04-hypothesis.html#sec-test-selection" class="quarto-xref"><span>Statistical test selection</span></a> with an extended test selection flow chart and table. The seperate repository for the test selection code can be found <a href="https://github.com/ShKlinkenberg/statistical-test-selection/tree/main">in this GitHub repository</a>. In addition Sharon has updated the PROCESS macro text and videos to version 5 of PROCESS.</p>
+</section>
 <section id="contribute" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="contribute">Contribute</h3>
 <p>If you would like to contribute to the book, you can fork the GitHub repository and submit a pull request. The book is written in quarto markdown and compiled using the quarto package. The book is hosted on GitHub pages and the source material is maintained from <a href="https://github.com/WdeNooy/Statistical-Inference">his github repository</a>. If you find any typo’s or errors, please submit an issue on the <a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues">GitHub repository</a>.</p>
 </section>
 <section id="license" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="license">License</h3>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a></p>
 
 
 </section>
@@ -705,4 +714,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/13-colophon.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/13-colophon.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/master/13-colophon.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/master/13-colophon.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

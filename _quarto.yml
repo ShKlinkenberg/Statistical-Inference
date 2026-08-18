@@ -5,12 +5,14 @@ project:
 book:
   title:    "Statistical Inference"
   subtitle: "A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation"
-  author:   ["Wouter de Nooy","et al."]
+  author:   ["de Nooy","Klinkenberg", "Gao", "van den Hout", "Scholz"]
   date:     now
   search:   true
   page-navigation: true
-  repo-url: https://github.com/ShKlinkenberg/Statistical-Inference
+  repo-url: "https://github.com/ShKlinkenberg/Statistical-Inference"
+  repo-branch: "master"
   repo-actions: [issue, source, edit]
+  # sharing: [linkedin, facebook]
   chapters:
     - index.qmd
     - 01-samplingdistr.qmd
@@ -32,7 +34,7 @@ bibliography: RefList.bib
 
 format:
   html:
-    theme: united
+    theme: minty
     link-external-newwindow: true
     toc-location: right
     toc-depth: 4
